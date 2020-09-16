@@ -1,0 +1,24 @@
+    var idade = null;
+    var dataAtual = new Date();
+
+    $('#btnIdade').on('click', function () {
+        alert('Ola ' + $('#txtNome').val() + ' sua idade é: ' + idade);
+    });
+    $('#txtNome').on('change', function () {
+        if ($('#txtDataAniversario').val() != "" && $('txtNome').val() != "") {
+            $('#btnIdade').show();
+        }
+    })
+    $('#txtDataAniversario').on('change', function () {
+        if ($('#txtDataAniversario').val() != "") {
+            idade = dataAtual.getFullYear() - new Date($('#txtDataAniversario').val()).getFullYear();
+            if (new Date($('#txtDataAniversario').val()).getMonth() > dataAtual.getMonth()) {
+                idade--;
+            } else if (new Date($('#txtDataAniversario').val()).getMonth() == dataAtual.getMonth() && new Date($('#txtDataAniversario').val()).getDate() + 1 > dataAtual.getDate()) {
+                idade--;
+            }
+        }
+        if ($('#txtDataAniversario').val() != "" && $('#txtNome').val() != "") {
+            $('#btnIdade').show();
+        }
+    })
