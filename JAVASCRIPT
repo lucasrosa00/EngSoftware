@@ -1,4 +1,6 @@
-    var idade = null;
+$(document).ready(function () {
+
+var idade = null;
     var dataAtual = new Date();
 
     $('#btnIdade').on('click', function () {
@@ -22,3 +24,4 @@
             $('#btnIdade').show();
         }
     })
+});
